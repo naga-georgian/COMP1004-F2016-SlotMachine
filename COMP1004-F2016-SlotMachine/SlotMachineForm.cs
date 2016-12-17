@@ -127,6 +127,71 @@ namespace COMP1004_F2016_SlotMachine
             return (value >= lowerBounds && value <= upperBounds) ? true : false;
         }
 
+        /* When this function is called it determines the betLine results.
+        e.g. Bar - Orange - Banana */
+        private string[] Reels()
+        {
+            string[] betLine = { " ", " ", " " };
+            int[] outCome = { 0, 0, 0 };
+
+
+            // for each reel
+            for (var spin = 0; spin < 3; spin++)
+            {
+                outCome[spin] = this.random.Next(65) + 1;
+
+                if (checkRange(outCome[spin], 1, 27))
+                {  // 41.5% probability
+                    betLine[spin] = "blank";
+                    blanks++;
+                    setReelPicture(spin, COMP1004_F2016_SlotMachine.Properties.Resources.blank);
+                }
+                else if (checkRange(outCome[spin], 28, 37))
+                { // 15.4% probability
+                    betLine[spin] = "Grapes";
+                    grapes++;
+                    setReelPicture(spin, COMP1004_F2016_SlotMachine.Properties.Resources.grapes);
+                }
+                else if (checkRange(outCome[spin], 38, 46))
+                { // 13.8% probability
+                    betLine[spin] = "Banana";
+                    bananas++;
+                    setReelPicture(spin, COMP1004_F2016_SlotMachine.Properties.Resources.banana);
+                }
+                else if (checkRange(outCome[spin], 47, 54))
+                { // 12.3% probability
+                    betLine[spin] = "Orange";
+                    oranges++;
+                    setReelPicture(spin, COMP1004_F2016_SlotMachine.Properties.Resources.orange);
+                }
+                else if (checkRange(outCome[spin], 55, 59))
+                { //  7.7% probability
+                    betLine[spin] = "Cherry";
+                    cherries++;
+                    setReelPicture(spin, COMP1004_F2016_SlotMachine.Properties.Resources.cherry);
+                }
+                else if (checkRange(outCome[spin], 60, 62))
+                { //  4.6% probability
+                    betLine[spin] = "Bar";
+                    bars++;
+                    setReelPicture(spin, COMP1004_F2016_SlotMachine.Properties.Resources.bar);
+                }
+                else if (checkRange(outCome[spin], 63, 64))
+                { //  3.1% probability
+                    betLine[spin] = "Bell";
+                    bells++;
+                    setReelPicture(spin, COMP1004_F2016_SlotMachine.Properties.Resources.bell);
+                }
+                else if (checkRange(outCome[spin], 65, 65))
+                { //  1.5% probability
+                    betLine[spin] = "Seven";
+                    sevens++;
+                    setReelPicture(spin, COMP1004_F2016_SlotMachine.Properties.Resources.seven);
+                }
+            }
+            return betLine;
+        }
+
 
     }
 }
