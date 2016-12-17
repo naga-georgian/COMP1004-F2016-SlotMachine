@@ -290,5 +290,56 @@ namespace COMP1004_F2016_SlotMachine
             }
         }
 
+        //--------------------------------------------------------------------------------
+        // The user clicked the SPIN button - validate that they are able to play and
+        // spin the reels!
+        //--------------------------------------------------------------------------------
+        private void SpinPictureBox_Click(object sender, EventArgs e)
+        {
+            if (playerMoney <= 0)
+            {
+                if (MessageBox.Show("You ran out of Money! \nDo you want to play again?", "Out of Money!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    resetAll();
+                }
+            }
+            else if (playerBet > playerMoney)
+            {
+                MessageBox.Show("You don't have enough Money to place that bet.", "Insufficient Funds");
+            }
+            else if (playerBet < 0)
+            {
+                MessageBox.Show("All bets must be a positive $ amount.", "Incorrect Bet");
+            }
+            else if (playerBet <= playerMoney)
+            {
+                playerMoney -= playerBet;
+                spinResult = Reels();
+                lbl_Credits.Text = playerMoney.ToString();
+
+                fruits = spinResult[0] + " - " + spinResult[1] + " - " + spinResult[2];
+                determineWinnings();
+                lbl_Credits.Text = playerMoney.ToString();
+                turn++;
+
+                // increment the jackpot
+                jackpot++;
+                lbl_Jackpot.Text = jackpot.ToString();
+
+                // check if the user ran out of money from their last spin
+                if (playerMoney <= 0)
+                {
+                    if (MessageBox.Show("You ran out of Money! \nDo you want to play again?", "Out of Money!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        resetAll();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid bet amount");
+            }
+        }
+
     }
 }
