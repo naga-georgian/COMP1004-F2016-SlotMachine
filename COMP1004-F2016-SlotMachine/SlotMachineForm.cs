@@ -192,6 +192,24 @@ namespace COMP1004_F2016_SlotMachine
             return betLine;
         }
 
+        //--------------------------------------------------------------------------------
+        // Sets picture of the reel with corresponding spin number
+        //--------------------------------------------------------------------------------
+        public void setReelPicture(int spin, Image resultImage)
+        {
+            if (spin == 0)
+            {
+                pictureBox_Reel1.Image = resultImage;
+            }
+            else if (spin == 1)
+            {
+                pictureBox_Reel2.Image = resultImage;
+            }
+            else
+            {
+                pictureBox_Reel3.Image = resultImage;
+            }
+        }
 
     }
 }
