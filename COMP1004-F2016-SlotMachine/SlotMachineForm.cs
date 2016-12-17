@@ -341,5 +341,117 @@ namespace COMP1004_F2016_SlotMachine
             }
         }
 
+        //--------------------------------------------------------------------------------
+        // Set the labels and default player bet on load
+        //--------------------------------------------------------------------------------
+        private void SlotMachineForm_Load(object sender, EventArgs e)
+        {
+            // set labels
+            lbl_Credits.Text = playerMoney.ToString();
+            lbl_Jackpot.Text = jackpot.ToString();
+            lbl_Bet.Text = "5";
+            lbl_Paid.Text = "0";
+
+            // default bet amount
+            playerBet = 5;
+        }
+
+        //--------------------------------------------------------------------------------
+        // BET BUTTONS - set the label and playerBet if the user has enough money to
+        //               place the bet
+        //--------------------------------------------------------------------------------
+        private void pictureBox_Bet1_Click(object sender, EventArgs e)
+        {
+            if (playerMoney < 1)
+            {
+                MessageBox.Show("You don't have enough money to place that bet!", "Insufficient Funds");
+            }
+            else
+            {
+                lbl_Bet.Text = "1";
+                playerBet = 1;
+            }
+        }
+
+        private void pictureBox_Bet5_Click(object sender, EventArgs e)
+        {
+            if (playerMoney < 5)
+            {
+                MessageBox.Show("You don't have enough money to place that bet!", "Insufficient Funds");
+            }
+            else
+            {
+                lbl_Bet.Text = "5";
+                playerBet = 5;
+            }
+        }
+
+        private void pictureBox_Bet25_Click(object sender, EventArgs e)
+        {
+            if (playerMoney < 25)
+            {
+                MessageBox.Show("You don't have enough money to place that bet!", "Insufficient Funds");
+            }
+            else
+            {
+                lbl_Bet.Text = "25";
+                playerBet = 25;
+            }
+        }
+
+        private void pictureBox_Bet50_Click(object sender, EventArgs e)
+        {
+            if (playerMoney < 50)
+            {
+                MessageBox.Show("You don't have enough money to place that bet!", "Insufficient Funds");
+            }
+            else
+            {
+                lbl_Bet.Text = "50";
+                playerBet = 50;
+            }
+        }
+
+        private void pictureBox_Bet100_Click(object sender, EventArgs e)
+        {
+            if (playerMoney < 100)
+            {
+                MessageBox.Show("You don't have enough money to place that bet!", "Insufficient Funds");
+            }
+            else
+            {
+                lbl_Bet.Text = "100";
+                playerBet = 100;
+            }
+        }
+
+
+        //--------------------------------------------------------------------------------
+        // The user clicked the reset button - Reset all the values and labels to default
+        //--------------------------------------------------------------------------------
+        private void pictureBox_Reset_Click(object sender, EventArgs e)
+        {
+            resetAll();
+            lbl_Credits.Text = playerMoney.ToString();
+            lbl_Bet.Text = playerBet.ToString();
+        }
+
+        //--------------------------------------------------------------------------------
+        // Close the application
+        //--------------------------------------------------------------------------------
+        private void pictureBox_Quit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        //--------------------------------------------------------------------------------
+        // Show the player stats when the user clicks the STATS button
+        //--------------------------------------------------------------------------------
+        private void btn_Stats_Click(object sender, EventArgs e)
+        {
+            showPlayerStats();
+        }
     }
+
 }
+ 
