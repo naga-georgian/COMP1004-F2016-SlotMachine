@@ -211,5 +211,84 @@ namespace COMP1004_F2016_SlotMachine
             }
         }
 
+        /* This function calculates the player's winnings, if any */
+        private void determineWinnings()
+        {
+            if (blanks == 0)
+            {
+                if (grapes == 3)
+                {
+                    winnings = playerBet * 10;
+                }
+                else if (bananas == 3)
+                {
+                    winnings = playerBet * 20;
+                }
+                else if (oranges == 3)
+                {
+                    winnings = playerBet * 30;
+                }
+                else if (cherries == 3)
+                {
+                    winnings = playerBet * 40;
+                }
+                else if (bars == 3)
+                {
+                    winnings = playerBet * 50;
+                }
+                else if (bells == 3)
+                {
+                    winnings = playerBet * 75;
+                }
+                else if (sevens == 3)
+                {
+                    winnings = playerBet * 100;
+                }
+                else if (grapes == 2)
+                {
+                    winnings = playerBet * 2;
+                }
+                else if (bananas == 2)
+                {
+                    winnings = playerBet * 2;
+                }
+                else if (oranges == 2)
+                {
+                    winnings = playerBet * 3;
+                }
+                else if (cherries == 2)
+                {
+                    winnings = playerBet * 4;
+                }
+                else if (bars == 2)
+                {
+                    winnings = playerBet * 5;
+                }
+                else if (bells == 2)
+                {
+                    winnings = playerBet * 10;
+                }
+                else if (sevens == 2)
+                {
+                    winnings = playerBet * 20;
+                }
+                else if (sevens == 1)
+                {
+                    winnings = playerBet * 5;
+                }
+                else
+                {
+                    winnings = playerBet * 1;
+                }
+                winNumber++;
+                showWinMessage();
+            }
+            else
+            {
+                lossNumber++;
+                showLossMessage();
+            }
+        }
+
     }
 }
