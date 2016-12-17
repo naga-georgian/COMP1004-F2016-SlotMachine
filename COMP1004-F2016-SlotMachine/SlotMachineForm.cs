@@ -59,5 +59,37 @@ namespace COMP1004_F2016_SlotMachine
             stats += ("Loss Ratio: " + (lossRatio * 100) + "%\n");
             MessageBox.Show(stats, "Player Stats");
         }
+
+        /* Utility function to reset all fruit tallies*/
+        private void resetFruitTally()
+        {
+            grapes = 0;
+            bananas = 0;
+            oranges = 0;
+            cherries = 0;
+            bars = 0;
+            bells = 0;
+            sevens = 0;
+            blanks = 0;
+        }
+
+        /* Utility function to reset the player stats */
+        private void resetAll()
+        {
+            playerMoney = 500;
+            winnings = 0;
+            jackpot = 5000;
+            turn = 0;
+            playerBet = 5;
+            winNumber = 0;
+            lossNumber = 0;
+            winRatio = 0.0f;
+
+            // reset labels
+            lbl_Jackpot.Text = jackpot.ToString();
+            lbl_Credits.Text = playerMoney.ToString();
+            lbl_Bet.Text = playerBet.ToString();
+        }
+
     }
 }
