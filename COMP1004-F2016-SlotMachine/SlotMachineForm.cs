@@ -10,6 +10,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Name: Naga Rimmalapudi
+// Student#: 200277598
+// Date: Dec 14, 2016
+// Slot Machine
+
 namespace COMP1004_F2016_SlotMachine
 {
     public partial class SlotMachineForm : Form
